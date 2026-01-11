@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar - Sistem Manajemen Gudang</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Sistem Manajemen Gudang</h1>
+
+<div class="container">
+  <h2>Daftar Akun Baru</h2>
+
+  <form onsubmit="event.preventDefault(); signup(name.value, email.value, password.value, role.value, key.value)">
+    <input type="text" id="name" placeholder="Nama lengkap" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password minimal 6 karakter" required>
+    <input type="password" id="confirmPassword" placeholder="Ulangi password" required>
+    <select id="role" required>
+      <option value="">Pilih Peran</option>
+      <option value="admin">Admin</option>
+      <option value="staf">Staf</option>
+    </select>
+    <input type="text" id="key" placeholder="Kata Kunci Role" required>
+    <button type="submit">Daftar</button>
+  </form>
+
+  <p>Sudah punya akun? <a href="index.html">Login di sini</a></p>
+
+  <div class="info-box">
+    <p><strong>Kata Kunci Akses:</strong></p>
+    <p>Admin: ADMIN2026</p>
+    <p>Staf: STAF2026</p>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Barang Keluar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Barang Keluar</h1>
+
+<div class="container">
+  <input type="number" id="productId" placeholder="ID Produk">
+  <input type="number" id="jumlah" placeholder="Jumlah Barang Keluar">
+  <button onclick="simpanTransaksi('keluar')">Simpan</button>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+async function simpanTransaksi(jenis) {
+  const productId = document.getElementById("productId").value;
+  const quantity = document.getElementById("jumlah").value;
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch("http://localhost:3000/api/transactions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ productId, quantity, jenis })
+    });
+
+    if (!res.ok) throw new Error("Gagal mencatat transaksi");
+
+    alert("Transaksi barang keluar berhasil dan stok berkurang!");
+    window.location.href = "transactions.html";
+  } catch (err) {
+    alert(err.message);
+  }
+}
+</script>
+</body>
+</html>

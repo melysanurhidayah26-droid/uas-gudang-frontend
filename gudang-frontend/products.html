@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Produk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="getProducts()"> <h1>Manajemen Produk</h1>
+
+<div class="container">
+  <h3>Tambah Produk Baru</h3>
+  <input type="text" id="nama" placeholder="Nama Produk">
+  <input type="number" id="stok" placeholder="Stok">
+  <input type="number" id="harga" placeholder="Harga">
+  <button onclick="addProduct(document.getElementById('nama').value, document.getElementById('stok').value, document.getElementById('harga').value)">Simpan</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nama</th>
+      <th>Stok</th>
+      <th>Harga</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody id="productTable"></tbody> </table>
+
+<script src="js/auth.js"></script>
+<script src="js/products.js"></script>
+</body>
+</html>
